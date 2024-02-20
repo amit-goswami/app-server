@@ -1,5 +1,7 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
+import cors from 'cors'
+import helmet from 'helmet'
 import { config } from 'dotenv'
 import { App } from './server.interface'
 import { Connect } from '../connect-db'
@@ -15,6 +17,9 @@ class Server implements App.IAppServer {
     this.app = express()
     this.app.use(morgan('combined'))
     this.app.use(express.json())
+    this.app.use(express.urlencoded({ extended: true }))
+    this.app.use(helmet())
+    this.app.use(cors())
     this.port = process.env.PORT || App.PORT.DEFAULT
   }
 
