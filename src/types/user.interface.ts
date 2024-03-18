@@ -5,7 +5,8 @@ import { Document } from 'mongoose'
 export enum USER_MESSAGE {
   SENTOTP = 'OTP sent successfully',
   VERIFYOTP = 'OTP verified successfully',
-  OTP_NOT_GENERATED = 'OTP not generated'
+  OTP_NOT_GENERATED = 'OTP not generated',
+  MOBILE_ALREADY_EXISTS = 'Mobile number already exists'
 }
 
 export enum USER_ROUTE {

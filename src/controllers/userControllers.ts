@@ -26,6 +26,16 @@ export const sendOTPController = async (
       })
     }
 
+    const duplicateMobileNumbers = await sharedService.findUserByEmail(mobile)
+
+    if (duplicateMobileNumbers.length !== zero) {
+      return res.status(HTTP_STATUS_CODE.OK).json({
+        message: USER_MESSAGE.MOBILE_ALREADY_EXISTS,
+        status: HTTP_STATUS_CODE.OK,
+        user: duplicateMobileNumbers[zero]
+      })
+    }
+
     const user = users[0]
 
     if (!user.lastOtpSentAt) {
