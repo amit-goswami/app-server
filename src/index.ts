@@ -5,6 +5,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectToDB from './config/database'
 import authRoutes from './routes/authRoutes'
+import userRoutes from './routes/userRoutes'
 import { END_POINT } from './types/shared.interface'
 
 dotenv.config()
@@ -21,7 +22,7 @@ app.get(END_POINT.BASE_URL, (_req, res) => {
 })
 
 app.use(END_POINT.BASE_URL, authRoutes)
-// app.use(END_POINT.BASE_URL, userRoutes)
+app.use(END_POINT.BASE_URL, userRoutes)
 
 const port = process.env.PORT
 const exitProcess = 1
