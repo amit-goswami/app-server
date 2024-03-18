@@ -33,5 +33,11 @@ export enum HTTP_STATUS_CODE {
 export enum ERROR_MESSAGE {
   INTERNAL_SERVER_ERROR = 'Internal server error',
   VALIDATION_ERROR = 'Validation error',
-  USER_NOT_FOUND = 'User not found'
+  USER_NOT_FOUND = 'User not found',
+  INVALID_OTP = 'Invalid OTP'
+}
+
+export enum VERIFICATION_STATUS {
+  APPROVED = 'approved',
+  PENDING = 'pending'
 }

@@ -14,13 +14,17 @@ export enum AUTH_ROUTE {
 export interface IUserData {
   uid: string
   email: string
+  mobileNumber?: string
+  isMobileVerified?: boolean
+  createdAt?: Date
+  lastOtpSentAt?: Date
 }
 
 export interface IUserDataDocument extends IUserData, Document {}
 
 export interface IAuthResponse {
   message: AUTH_MESSAGE | ERROR_MESSAGE
-  user?: IUserDataDocument | IUserDataDocument[]
+  user?: IUserDataDocument | IUserDataDocument[] | any
   errors?: ValidationError
   status?: HTTP_STATUS_CODE
 }

@@ -19,8 +19,7 @@ const sendOTPService = async (phoneNumber: string) => {
 const verifyOTPService = async (phoneNumber: string, otp: string) => {
   const result = await client.verify.v2
     .services(twilioServiceSID as string)
-    .verificationChecks.create({ to: `+${phoneNumber}`, code: otp })
-
+    .verificationChecks.create({ to: `+91${phoneNumber}`, code: otp })
   return result
 }
 

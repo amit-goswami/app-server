@@ -23,13 +23,6 @@ const UserSchema = new Schema({
   },
   lastOtpSentAt: {
     type: Date
-  },
-  nextOtpWillBeSentIn: {
-    type: Date
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
   }
 })
 
