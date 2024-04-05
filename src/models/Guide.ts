@@ -3,7 +3,7 @@ import { USER_ROLES } from '../types/shared.interface'
 
 const { Schema } = mongoose
 
-const UserSchema = new Schema({
+const GuideSchema = new Schema({
   uid: {
     type: String,
     required: true,
@@ -27,10 +27,10 @@ const UserSchema = new Schema({
   },
   role: {
     type: String,
-    default: USER_ROLES.USER
+    default: USER_ROLES.GUIDE
   }
 })
 
-const User = mongoose.model('user', UserSchema)
+const Guide = mongoose.model('guide', GuideSchema)
 
-export default User
+export default Guide

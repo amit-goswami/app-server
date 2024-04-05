@@ -15,9 +15,13 @@ export const sendOTPController = async (
   res: Response<IUserResponse>
 ) => {
   try {
-    const { uid, mobile } = req.body
+    const { uid, mobile, role } = req.body
 
-    const users = await sharedService.findUserByUID(uid)
+    const users =
+      await sharedService.searchInDifferentCollectionsAccordingToRole({
+        role,
+        uid
+      })
 
     if (users.length === 0) {
       return res.status(HTTP_STATUS_CODE.NOT_FOUND).json({
@@ -26,7 +30,11 @@ export const sendOTPController = async (
       })
     }
 
-    const duplicateMobileNumbers = await sharedService.findUserByEmail(mobile)
+    const duplicateMobileNumbers =
+      await sharedService.searchInDifferentCollectionsAccordingToRoleAndMobile({
+        role,
+        mobile
+      })
 
     if (duplicateMobileNumbers.length !== zero) {
       return res.status(HTTP_STATUS_CODE.OK).json({
@@ -87,9 +95,13 @@ export const verifyOTPController = async (
   res: Response<IUserResponse>
 ) => {
   try {
-    const { mobile, uid, otp } = req.body
+    const { mobile, uid, otp, role } = req.body
 
-    const users = await sharedService.findUserByUID(uid)
+    const users =
+      await sharedService.searchInDifferentCollectionsAccordingToRole({
+        role,
+        uid
+      })
 
     if (users.length === zero) {
       return res.status(HTTP_STATUS_CODE.OK).json({
