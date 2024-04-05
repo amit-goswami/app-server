@@ -34,10 +34,15 @@ export enum ERROR_MESSAGE {
   INTERNAL_SERVER_ERROR = 'Internal server error',
   VALIDATION_ERROR = 'Validation error',
   USER_NOT_FOUND = 'User not found',
-  INVALID_OTP = 'Invalid OTP'
+  INVALID_OTP = 'Invalid OTP',
+  NOT_AUTHORIZED = 'Not authorized'
 }
 
 export enum VERIFICATION_STATUS {
   APPROVED = 'approved',
   PENDING = 'pending'
+}
+
+export enum ADMIN {
+  EMAIL = 'admin@gmail.com'
 }
