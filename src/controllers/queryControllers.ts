@@ -12,11 +12,12 @@ export const queryCreateController = async (
   res: Response<IQueryResponse>
 ) => {
   try {
-    const { name, email, mobileNumber } = req.body
+    const { name, email, queryType, mobileNumber } = req.body
 
     const createdQuery = await queryService.createQuery({
       name,
       email,
+      queryType,
       mobileNumber
     })
 

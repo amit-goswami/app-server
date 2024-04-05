@@ -5,5 +5,6 @@ export const querySchema = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .required(),
-  mobileNumber: Joi.string().pattern(new RegExp('^[0-9]{10}$')).required()
+  mobileNumber: Joi.string().pattern(new RegExp('^[0-9]{10}$')).required(),
+  queryType: Joi.string().required()
 })

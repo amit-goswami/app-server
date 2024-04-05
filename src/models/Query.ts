@@ -13,11 +13,15 @@ const QuerySchema = new Schema({
     required: true
   },
   mobileNumber: {
-    type: String
+    type: Number
   },
   status: {
     type: String,
     default: QUERY_STATUS.PENDING
+  },
+  queryType: {
+    type: String,
+    required: true
   },
   createdAt: {
     type: Date,

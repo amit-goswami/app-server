@@ -20,7 +20,8 @@ export interface IQueryData {
   uid?: string
   name: string
   email: string
-  mobileNumber: string
+  queryType: string
+  mobileNumber: number
   status?: QUERY_STATUS
   createdAt?: Date
 }
