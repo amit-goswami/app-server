@@ -8,6 +8,7 @@ import authRoutes from './routes/authRoutes'
 import userRoutes from './routes/userRoutes'
 import queryRoutes from './routes/queryRoutes'
 import { END_POINT } from './types/shared.interface'
+import { rateLimiter } from './middlewares/rateLimiter'
 
 dotenv.config()
 const app = express()
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
 app.use(morgan('combined'))
+app.use(rateLimiter)
 
 app.get(END_POINT.BASE_URL, (_req, res) => {
   res.send('Hello World!')
